@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:nuevaapi/services/service.dart';
 
 class DropdownScreen extends StatefulWidget {
   const DropdownScreen({super.key});
@@ -24,20 +25,7 @@ class _DropdownScreenState extends State<DropdownScreen> {
   bool isCountrySelected = false;
   bool istateSelected = false;
 
-  Future getWorlData() async {
-    var response = await http.get(Uri.parse(url));
-    if (response.statusCode == 200) {
-      var jsonresponse = convert.jsonDecode(response.body.toString());
-      //Map<String, dynamic> map = json.decode(response.body);
-      //List<dynamic> data = map["message"];
-      //print(data[0]["name"]);
-      setState(() {
-        _dogo = jsonresponse;
-      });
-
-      print(_dogo);
-    }
-  }
+ 
 
   @override
   void initState() {
